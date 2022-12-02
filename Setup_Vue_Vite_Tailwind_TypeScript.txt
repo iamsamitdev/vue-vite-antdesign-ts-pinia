@@ -1,0 +1,737 @@
++++++++++++++++++++++++++++++++++++++
+| การสร้างโปรเจ็กต์ใหม่ 
+| Vue 3+ TypeScript + Vite 3 + Tailwind 3
++++++++++++++++++++++++++++++++++++++
+Step 1: Install Vite in Global
+---
+$ npm install -g vite
+
+Step 2: Create new Vite Project with Vue
+---
+$ npm create vite@latest
+or
+$ yarn create vite
+
+กำหนดชื่อโปรเจ็กต์เป็น "vue-stock"
+
+Step 3: เปิดโปรเจ็กต์เข้า VS Code
+---
+code vue-stock -r
+
+Step 4: Install node module in Vite Project
+---
+$ npm install
+
+Step 5: Run Project Vite with Vue
+---
+$ npm run dev
+
+or Run with host Project Vite with Vue
+---
+$ npm run dev --  --host
+
+Step 6: Install Tailwind CSS 3
+---
+$ npm install -D tailwindcss postcss autoprefixer
+
+Step 7: Generate Config Tailwind and PostCSS file
+---
+$ npx tailwindcss init -p
+
+Step 8: Config tailwind template paths
+---
+content: [
+    "./index.html",
+    "./src/**/*.{vue,js,ts,jsx,tsx}",
+  ],
+
+Step 9: Add Tailwind direactives to your CSS
+---
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+Step 10: Import tailwind css in main.ts
+---
+// Tailwind CSS
+import './tailwind/app.css'
+import './tailwind/custom.css'
+
+ทดสอบใช้ Tailwind
+<h1 className="text-3xl font-bold text-red-700">
+      Hello world!
+</h1>
+
+Step 11: Build and Run project
+---
+$ npm run dev
+
+Step 12: Install EsLint and Prettier
+---
+$ npm install -D eslint
+$ npm install -D prettier
+$ npm install -D eslint-plugin-vue
+$ npm install -D eslint-plugin-prettier
+$ npm install -D eslint-config-prettier
+$ npm install -D vite-plugin-eslint
+$ npm install -D @typescript-eslint/eslint-plugin
+$ npm install -D @typescript-eslint/parser
+$ npm install -D @vue/eslint-config-prettier
+$ npm install -D @vue/eslint-config-typescript
+
+
+Step 13: Create .eslintrc.json file
+---
+{
+    "root": true,
+    "globals": {
+        "defineProps": "readonly"
+    },
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "node": true
+    },
+    "extends": [
+        "plugin:vue/vue3-recommended",
+        "eslint:recommended",
+        "@vue/typescript/recommended",
+        "prettier"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 2021
+    },
+    "plugins": [],
+    "rules": {}
+}
+
+Step 14: Create .prettierrc file
+---
+{
+  "singleQuote": true,
+  "semi": false,
+  "tabWidth": 4,
+  "useTabs": false,
+  "printWidth": 80,
+  "endOfLine": "auto",
+  "trailingComma": "es5",
+  "bracketSpacing": true,
+  "vueIndentScriptAndStyle": true
+}
+
+Step 14: Install Vue Router
+---
+$ npm install vue-router@4
+
+Step 15: Vite Config path file to src
+---
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import eslintPLugin from "vite-plugin-eslint"
+import { fileURLToPath, URL } from 'url'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url))
+    }
+  },
+  plugins: [vue(), eslintPLugin()]
+})
+
+Step 16: install @types/node
+---
+npm install -D @types/node
+
+Step 17: Create .env file
+---
+VITE_APP_TITLE=Vue Stock
+
+Step 18: Create .env.development  file
+---
+VITE_APP_URL=/
+VITE_APP_URL_API=https://laravel-backend-class.herokuapp.com/api/
+
+Step 19: Create .env.production  file
+---
+VITE_APP_URL=/vuestock
+VITE_APP_URL_API=https://laravel-backend-class.herokuapp.com/api/
+
+โครงสร้างโปรเจ็กต์ VUE-STOCK
+===============================
+vue-stock
+|   
++---.vscode
++---public
+|       
+\---src
+    |   App.vue
+    |   main.ts
+    |   vite-env.d.ts
+    +---assets  
+    +---components
+    |   +---backend
+    |   \---frontend
+    |           FrontendFoot.vue
+    |           FrontendNav.vue
+    +---hook
+    |       useAppCycleList.ts
+    +---layouts
+    |       FrontendLayout.vue
+    +---router
+    |       index.ts
+    +---store
+    |       counter.ts
+    +---tailwind
+    |       app.css
+    |       custom.css
+    \---views
+        +---backend
+        \---frontend
+                HomeView.vue   
+                FeaturesView.vue          
+                ServicesView.vue       
+                TestimonialsView.vue       
+                ContactView.vue    
+                GetstartedView.vue    
+|   .env
+|   .env.development
+|   .env.production
+|   .eslintrc.json
+|   .gitignore
+|   .prettierrc
+|   index.html
+|   package-lock.json
+|   package.json
+|   postcss.config.cjs
+|   README.md
+|   tailwind.config.cjs
+|   tree.txt
+|   tsconfig.json
+|   tsconfig.node.json
+|   vite.config.ts
+
++++++++++++++++++++++++++++++++++++++
+| DAY 5
+| การสร้างโปรเจ็กต์ใหม่ 
+| Vue 3+ TypeScript + Vite 3 + Pinia + Bootstrap 5 
++++++++++++++++++++++++++++++++++++++
+Step 1: Install Vite in Global
+---
+$ npm install -g vite
+
+Step 2: Create new Vite Project with Vue
+---
+$ npm create vite@latest
+or
+$ yarn create vite
+
+กำหนดชื่อโปรเจ็กต์เป็น "vue3-vite-ts-pinia-bs-shoppingcart"
+
+Step 3: เปิดโปรเจ็กต์เข้า VS Code
+---
+code vue3-vite-ts-pinia-bs-shoppingcart -r
+
+Step 4: Install node module in Vite Project
+---
+$ npm install
+
+Step 5: Run Project Vite with Vue
+---
+$ npm run dev
+
+or Run with host Project Vite with Vue
+---
+$ npm run dev --  --host
+
+Step 6: Install @types/node
+---
+$ npm install -D @types/node
+
+Step 7: Install pinia
+---
+$ npm install pinia
+
+Step 8: Install vue-router
+---
+$ npm install vue-router@4
+
+Step 9: Install bootstrap and bootstrap-icons
+---
+npm install bootstrap bootstrap-icons
+
+Step 10: Install sweetalert2
+---
+$ npm install sweetalert2
+
+โครงสร้างโปรเจ็กต์
+----------------------------------------------------------------------
+vue3-vite-ts-pinia-bs-shoppingcart
+|   
++---.vscode
+|       extensions.json
++---public
+|       vite.svg
+\---src
+    |   App.vue
+    |   main.ts
+    |   vite-env.d.ts
+    +---assets
+    |       vue.svg
+    +---components
+    |       Footer.vue
+    |       Header.vue
+    |       ProductList.vue
+    |       ProductListItem.vue
+    +---mockupdata
+    |       products.ts
+    +---router
+    |       index.ts
+    +---store
+    |       index.ts
+    +---styles
+    |       custom.css
+    \---views
+            About.vue
+            Cart.vue
+            Home.vue
+            ProductDetail.vue
+|   .env
+|   .env.development
+|   .env.production
+|   .gitignore
+|   bootstrap.min.css
+|   index.html
+|   package-lock.json
+|   package.json
+|   README.md
+|   tsconfig.json
+|   tsconfig.node.json
+|   vite.config.ts
+
+
++++++++++++++++++++++++++++++++++++++
+| การสร้างโปรเจ็กต์ใหม่ 
+| Vue + TS + Vite + Pinia + Tailwind + daisyUI
++++++++++++++++++++++++++++++++++++++
+Step 1: Install Vite in Global
+---
+$ npm install -g vite
+
+Step 2: Create new Vite Project with Vue
+---
+$ npm create vite@latest
+or
+$ yarn create vite
+
+กำหนดชื่อโปรเจ็กต์เป็น "vue3-vite-ts-tailwind-daisyui-cart"
+
+Step 3: เปิดโปรเจ็กต์เข้า VS Code
+---
+code vue3-vite-ts-tailwind-daisyui-cart
+
+Step 4: Install node module in Vite Project
+---
+$ npm install
+
+Step 5: Run Project Vite with Vue
+---
+$ npm run dev
+
+or Run with host Project Vite with Vue
+---
+$ npm run dev --  --host
+
+Step 6: Install Tailwind CSS 3
+---
+$ npm install -D tailwindcss postcss autoprefixer
+
+Step 7: Install daisyui
+---
+$ npm install daisyui
+
+Step 8: Generate Config Tailwind and PostCSS file
+---
+$ npx tailwindcss init -p
+
+Step 9: Config tailwind template paths
+---
+const defaultTheme = require('tailwindcss/defaultTheme')
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  mode: 'jit',
+  darkMode: 'class',
+  content: [
+    "./index.html",
+    "./src/**/*.{vue,js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['IBM Plex Sans Thai', ...defaultTheme.fontFamily.sans],
+      },
+    },
+  },
+  plugins: [
+    require("daisyui")
+  ],
+}
+
+Step 10: Add Tailwind direactives to your CSS
+
+src/tailwind/app.css
+---
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+src/tailwind/custom.css
+---
+.router-link-exact-active {
+    /* color: #059669 !important; */
+}
+
+.dark {
+background-color: #111621;
+color: #fff;
+}
+
+Step 11: Import tailwind css in main.ts
+---
+// Tailwind CSS
+import './tailwind/app.css'
+import './tailwind/custom.css'
+
+Step 12: Install @types/node
+---
+$ npm install -D @types/node
+
+Step 13: Install pinia
+---
+$ npm install pinia
+
+Step 14: Install vue-router
+---
+$ npm install vue-router@4
+
++++++++++++++++++++++++++++++++++++++
+| การสร้างโปรเจ็กต์ใหม่ 
+| Vue + TS + Vite +  Pinia + Vuetify
++++++++++++++++++++++++++++++++++++++
+Step 1: Install Vite in Global
+---
+$ npm install -g vite
+
+Step 2: Create new Vite Project with Vue
+---
+$ npm create vite@latest
+or
+$ yarn create vite
+
+กำหนดชื่อโปรเจ็กต์เป็น "vue-vite-vuetify-ts-pinia"
+
+Step 3: เปิดโปรเจ็กต์เข้า VS Code
+---
+code vue-vite-vuetify-ts-pinia -r
+
+Step 4: Install node module in Vite Project
+---
+$ npm install
+
+Step 5: Run Project Vite with Vue
+---
+$ npm run dev
+
+Step 6: Library ที่ใช้
+---
+npm i pinia
+npm i vue-router
+npm i vuetify@3.0.2
+npm i @mdi/font
+
+npm i @types/node -D
+npm i sass -D
+
+ทำแอพหลายภาษา
+---
+npm i vue-i18n
+npm i @intlify/vite-plugin-vue-i18n
+
+Languages - ภาษา - ພາສາ - 언어
+Dashboard  - แดชบอร์ด - ແຜງໜ້າປັດ  - 계기반
+Products  - สินค้า - ຜະລິດຕະພັນ -  제품
+Orders - การสั่งซื้อ - ຄໍາສັ່ງ-  명령
+Reports - รายงาน - ບົດລາຍງານ -  보고서
+Settings - ตั้งค่าระบบ - ການຕັ້ງຄ່າ -  설정
+Logout - ออกจากระบบ - ອອກ​ຈາກ​ລະ​ບົບ -  로그 아웃
+
+npm i firebase@8
+
+โปรเจ็กต์ vue-vite-vuetify-ts-pinia-finished ที่เสร็จแล้ว
+--
+https://github.com/iamsamitdev/vue-vite-vuetify-ts-pinia-finished
+
++++++++++++++++++++++++++++++++++++++
+Apexcharts
++++++++++++++++++++++++++++++++++++++
+npm install apexcharts
+npm install vue3-apexcharts
+
+main.ts
+--
+import VueApexCharts from "vue3-apexcharts“
+app.use(VueApexCharts)
+
++++++++++++++++++++++++++++++++++++++
+Vue datepicker
++++++++++++++++++++++++++++++++++++++
+npm install @vuepic/vue-datepicker@3.5.3
+
+main.ts
+---
+import Datepicker from '@vuepic/vue-datepicker';
+import '@vuepic/vue-datepicker/dist/main.css'
+
+app.component('Datepicker', Datepicker)
+
+Setting.vue
+---
+<template>
+    <v-card-actions class="justify-center h-100">
+        <v-row justify="center" class="flex-column" style="flex-grow: 0">
+
+            <Datepicker 
+                ref="datepicker"
+                v-model="date" 
+                locale="th"
+                :format="format"
+                modelType="yyyy-MM-dd HH:mm:ss"  
+                placeholder="เลือกวัน" 
+                position="center"
+                autoApply 
+                @update:modelValue="handleDate"
+                style="margin-top: 300px">
+
+                <template #year="{ year }">
+                    {{ year + 543 }}
+                </template>
+
+            </Datepicker>
+
+            <h4 class="mt-4">ค่าที่จะนำไปใช้: {{ date }}</h4>
+
+        </v-row>
+    </v-card-actions>
+</template>
+
+
+<script setup lang="ts">
+
+import { ref } from 'vue'
+
+// Date Picker
+const date = ref()
+
+const format = (date: any) => {
+    const day = date.getDate()
+    const month = date.getMonth() + 1
+    const year = date.getFullYear()
+    const hour = date.getHours()
+    const min = date.getMinutes()
+    const sec = date.getSeconds()
+
+    // return `Selected date is ${day}/${month}/${year}`;
+    return `${day}/${month}/${year+543} ${hour}:${min}:${sec}`
+}
+
+const handleDate = (modelData: null) => {
+    date.value = modelData
+    if(date.value != null){
+        console.log(date.value)
+    }
+}
+
+</script>
+
++++++++++++++++++++++++++++++++++++++
+| การสร้างโปรเจ็กต์ใหม่ 
+| Vue + TS + Vite +  Pinia + Ant Design
++++++++++++++++++++++++++++++++++++++
+Step 1: Install Vite in Global
+---
+$ npm install -g vite
+
+Step 2: Create new Vite Project with Vue
+---
+$ npm create vite@latest
+or
+$ yarn create vite
+
+กำหนดชื่อโปรเจ็กต์เป็น "vue-vite-antdesign-ts-pinia"
+
+Step 3: เปิดโปรเจ็กต์เข้า VS Code
+---
+code vue-vite-antdesign-ts-pinia
+
+Step 4: Install node module in Vite Project
+---
+$ npm install
+
+Step 5: Run Project Vite with Vue
+---
+$ npm run dev
+
+Step 6: Install @types/node
+---
+$ npm install -D @types/node
+
+Step 7: Install pinia
+---
+$ npm install pinia
+
+Step 8: Install vue-router
+---
+$ npm install vue-router@4
+
+Step 9: Library ที่ใช้ทำงานกับ AntDesign
+---
+npm i ant-design-vue@next
+
+Step 10: Config vite.config.ts
+---
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import { fileURLToPath, URL } from 'url'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url))
+    }
+  },
+  plugins: [
+    vue(),
+  ],
+})
+
+
+Step 11: Config tsconfig.json
+---
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    },
+
+
+Step 11: Config main.ts
+---
+import { createApp } from 'vue'
+
+// Import Ant Design
+import Antd from "ant-design-vue"
+import "ant-design-vue/dist/antd.css"
+
+// Import Root Component
+import App from './App.vue'
+
+// Import Pinia
+import { createPinia } from 'pinia'
+
+// Import Router
+import router from './router/index'
+
+
+const app = createApp(App)
+app.use(Antd)
+app.use(createPinia())
+app.use(router)
+app.mount('#app')
+
+หากต้องการใช้ Icon ใน Ant Design
+ต้องติดตั้ง Library
+---
+npm install @ant-design/icons-vue
+
+--------------------------------------------------------------------
+Vue 3 with styled component
+--------------------------------------------------------------------
+npm install vue3-styled-components
+npm install typescript-styled-plugin
+
+tsconfig.json
+---
+"paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+
+App.vue
+---
+import { ThemeProvider } from 'vue3-styled-components'
+
+<ThemeProvider :theme="{primary: 'white'}">
+    <router-view />
+</ThemeProvider>
+
+<script setup lang="ts">
+import { ThemeProvider } from 'vue3-styled-components'
+</script>
+
+--------------------------------------------------------------------
+Vue 3 with CKEditor 5
+--------------------------------------------------------------------
+
+npm install --save @ckeditor/ckeditor5-vue @ckeditor/ckeditor5-build-classic
+
+config in main.ts
+---
+import CKEditor from '@ckeditor/ckeditor5-vue'
+
+app.use(CKEditor)
+
+สร้างไฟล์ src/types/index.d.ts
+---
+declare module '@ckeditor/ckeditor5-vue'
+declare module '@ckeditor/ckeditor5-build-classic'
+
+
++++++++++++++++++++++++++++++++++++++
+Deployed to netlify
++++++++++++++++++++++++++++++++++++++
+netlify.toml
+---
+# example netlify.toml
+[build]
+  command = "vite build"
+  functions = "netlify/functions"
+  publish = "dist"
+
+## Uncomment to use this redirect for Single Page Applications
+## Not needed for static site generators.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+
++++++++++++++++++++++++++++++++++++++
+Deployed to vercel
++++++++++++++++++++++++++++++++++++++
+vercel.json
+---
+
+{
+    "rewrites": [
+      { "source": "/(.*)", "destination": "/index.html" }
+    ],
+    "buildCommand": "npm run build",
+    "outputDirectory": "dist"
+  }
+  
+
+
